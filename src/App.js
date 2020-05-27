@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useRef, useState} from "react";
+import "./App.scss";
 
 function App() {
+  const [lightMode, setLightMode] = useState(true);
+  const downloadBtn = useRef(null);
+  const urlInput = useRef(null);
+
+  useEffect(()=>{
+    /*
+
+    const sendUrl =(url)=>{
+
+    }
+    downloadBtn.addEventListener("click", ()=>{
+      console.log(`URL: ${urlInput.value}`);
+      sendURL(urlInput.value);
+    });
+
+    const sendURL=(URL)=> {
+      window.location.href = `http://localhost:4000/download?URL=${URL}`;
+    }
+    */
+  }, []);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <div className="entirePage">
+        <h1>Twitter Downloader</h1>
+        <input ref={urlInput}
+          placeholder="Video URL e.g. https://www.youtube.com/watch?v=MtN1YnoL46Q"/>
+        <button ref={downloadBtn}>Convert</button>
+      </div>
+    </React.Fragment>
   );
 }
 
