@@ -1,0 +1,16 @@
+header{
+    padding-top:30px;
+    .container{
+        max-width: 800px;
+
+        .mr-auto{
+            a{
+              font-size: 25px;
+              color: black;
+              &:hover{
+                  text-decoration: none;
+              }
+            }   
+        }
+    }
+}
