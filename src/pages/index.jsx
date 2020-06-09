@@ -1,19 +1,26 @@
-import React from "react";
-import Layout from "../components/Layout";
+import React , {useEffect} from "react";
+import Layout from "../components/Layout"
 import DownloadButtonArea from "../components/DownloadButtonArea";
 import {Button} from "react-bootstrap";
-import { AiFillApple, AiFillAndroid, AiOutlineDesktop } from "react-icons/ai";
+import { AiFillApple, AiOutlineDesktop } from "react-icons/ai";
 import "../styles/pages/_index.scss";
 
+
+
+
 export default ()=>{
+
+    useEffect(()=>{
+
+    }, []);
+
     return(
         <Layout>
             <DownloadButtonArea/>
             <div className="container text-center my-5">
+                <h2>Support</h2>
                 <p>How to download <strong>Twitter</strong> and <strong>Instagram</strong> videos faster</p>
-                <Button href="#iphone" variant="dark" className="mb-2"> On Iphones <AiFillApple/> </Button>
-                <br/>
-                <Button href="#andriod" variant="dark" className="mb-2"> On Andriod phones <AiFillAndroid/> </Button>
+                <Button href="#iPhone" variant="dark" className="mb-2"> <strong>On iPhones</strong><AiFillApple size={`1.5em`} style={{paddingBottom: `2.9px`}}/> </Button>
                 <br/>
                 <Button href="#pc" variant="dark" className="mb-2">On PCs <AiOutlineDesktop/></Button>
                 <br/>
