@@ -1,4 +1,4 @@
-import React , {useEffect} from "react";
+import React from "react";
 import Layout from "../components/Layout"
 import DownloadButtonArea from "../components/DownloadButtonArea";
 import {Button} from "react-bootstrap";
@@ -6,22 +6,16 @@ import { AiFillApple, AiOutlineDesktop } from "react-icons/ai";
 import "../styles/pages/_index.scss";
 
 
+/*
+$ git add .
+$ git commit -m "make it better"
+$ git push heroku master
 
+https://www.gatsbyjs.org/docs/deploying-to-heroku/
+ Youtube: https://www.youtube.com/watch?v=Yd1wTE4dlKE
+*/ 
 
 export default ()=>{
-
-    useEffect(()=>{
-        const convertBtn = document.getElementById("convertButton");
-        const URLinput = document.getElementById("linkTextInput");
-
-        const convertLinkButton=()=>{
-            sendURL(URLinput.value);
-        }
-
-        const sendURL =(URL)=>{
-            window.location.href = `http://localhost:4000/downloader?URL=${URL}`;
-        }
-    }, []);
 
     return(
         <Layout>

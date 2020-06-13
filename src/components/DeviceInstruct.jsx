@@ -1,4 +1,4 @@
-import React from "react";
+/*import React from "react";
 import DownloadButtonArea from "./DownloadButtonArea";
 
 const DeviceInstruct =()=>{
@@ -22,3 +22,4 @@ Option 2 (default)
     Paste the link and click on Download 
 
 
+*/
