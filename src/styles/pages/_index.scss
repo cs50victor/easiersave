@@ -6,7 +6,10 @@
     border: 0;
     outline: 0;
     font-size: 100%;
+    box-sizing: border-box;
 }
+
+
 
 html, body{
     text-rendering: optimizeLegibility;
@@ -72,3 +75,23 @@ body{
     color: white;
     transition: 0.5s ease-out;
 }
+
+/*
+@media (prefers-color-scheme: light){
+    body{
+        background-color: white;
+    }
+}
+@media(prefers-color-scheme: dark){
+    body{
+        background-color: rgb(46, 46, 46);
+    }
+}
+       Maintain Aspect ratio of a div on resize
+.box{
+    width: 55%;
+    height: 0;
+    padding-bottom: calc(55%*9/16);
+}
+
+*/
