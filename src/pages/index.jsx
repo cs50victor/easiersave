@@ -11,7 +11,16 @@ import "../styles/pages/_index.scss";
 export default ()=>{
 
     useEffect(()=>{
+        const convertBtn = document.getElementById("convertButton");
+        const URLinput = document.getElementById("linkTextInput");
 
+        const convertLinkButton=()=>{
+            sendURL(URLinput.value);
+        }
+
+        const sendURL =(URL)=>{
+            window.location.href = `http://localhost:4000/downloader?URL=${URL}`;
+        }
     }, []);
 
     return(
