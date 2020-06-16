@@ -8,11 +8,11 @@ app.use(cors());
 const PORT = process.env.PORT || 4000;
 
 
-app.use(express.static(__dirname + "/public"));
+/*app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res)=>{
     res.render("index");
-})
+})*/
 
 /*app.get("/", (req, res, next) => {
     throw new Error("Something went wrong!");
@@ -39,21 +39,23 @@ app.get("/downloader", (req, res, next)=>{
         const video = youtubedl(URL);
     
         video.on('error', (err)=> {
-            console.error("err: " + err.message);
-            res.send("Invalid link")
+            res.json({message: "Invalid Link or unsupported website."}) 
         })
         
         video.on("info", (info)=>{
             console.log("Download Started");
             console.log("filename: " + info.title);
-            const fileHeaderName = `easiersave.com - ${info.title}.mp4`;
-            res.header(
-                "Content-Disposition",
-                        contentDisposition(fileHeaderName)
-            );
-            youtubedl(URL).pipe(res);
-        });
+            console.log("thumbnail: " + info.thumbnail)
+            console.log("url: " + info.url)
+            res.json({url: info.url, thumbnail: info.thumbnail, title:info.title })
+            //const fileHeaderName = `${info.title}.mp4`;
+            res.header({
+                "Connection": "keep-alive",
+                //"Content-Disposition":contentDisposition(fileHeaderName)
+            });
 
+            //youtubedl(URL).pipe(res);
+        });
 });
 
 //error handler middleware

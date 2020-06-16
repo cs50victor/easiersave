@@ -13,10 +13,9 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "bootstrap": "^4.5.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
     "gatsby": "^2.22.15",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-sass": "^2.3.3",
@@ -24,10 +23,16 @@
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.12.0",
-    "react-icons": "^3.10.0",
-    "youtube-dl": "^3.0.2"
+    "react-icons": "^3.10.0"
   },
   "devDependencies": {
     "prettier": "2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }

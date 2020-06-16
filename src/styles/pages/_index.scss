@@ -29,6 +29,8 @@ html, body{
     word-wrap: break-word;
     font-kerning: normal;
     line-height: 1.54;
+    letter-spacing: 0.3px;
+    overflow-x: hidden;
 }
 ::selection {
     background: #1d1d1d;
@@ -48,7 +50,7 @@ body{
     footer{
         font-size: 1rem;
         text-align: center;
-        margin: 50px 0 50px 0;
+        margin: 50px 10px;
     }
     h1,h2,h3,h4,h5,h6{
         font-weight: 700;
@@ -64,6 +66,24 @@ body{
         list-style-type: none;
         text-emphasis: bold;
         
+    }
+}
+
+.sect2{   
+    overflow: hidden;
+    background-image: url(../pages/backgroundLayer2.svg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    .howTo{
+        margin: 7em 0.5em;
+        box-shadow: 1px 2px 13px -2px #000000;
+        border-radius: 10px;
+        padding: 30px;
+        background-color: white;
     }
 }
 

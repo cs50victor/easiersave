@@ -1,8 +1,8 @@
 import React from "react";
 import Layout from "../components/Layout"
 import DownloadButtonArea from "../components/DownloadButtonArea";
-import {Button} from "react-bootstrap";
-import { AiFillApple, AiOutlineDesktop } from "react-icons/ai";
+//import {Button} from "react-bootstrap";
+//import { AiFillApple, AiOutlineDesktop } from "react-icons/ai";
 import "../styles/pages/_index.scss";
 
 
@@ -15,29 +15,36 @@ https://www.gatsbyjs.org/docs/deploying-to-heroku/
  Youtube: https://www.youtube.com/watch?v=Yd1wTE4dlKE
 */ 
 
-export default ()=>{
+const Home =()=>{
 
     return(
         <Layout>
             <DownloadButtonArea/>
-            <div className="container text-center my-5">
-                <h2>Support</h2>
-                <p>How to download <strong>Twitter</strong> and <strong>Instagram</strong> videos faster</p>
-                <Button href="#iPhone" variant="dark" className="mb-2"> <strong>On iPhones</strong><AiFillApple size={`1.5em`} style={{paddingBottom: `2.9px`}}/> </Button>
-                <br/>
-                <Button href="#pc" variant="dark" className="mb-2">On PCs <AiOutlineDesktop/></Button>
-                <br/>
-            </div>
-            <hr/>
-            <div className="container mt-3">
-                <h2>Example</h2>
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec 
-                interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis.
-                 Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante.
-                </p>
-                <h3>Houw</h3>
+            <br/>
+            <div className="sect2">
+                <div className="container howTo">
+                    <div className="text-center my-5">
+                        <h2>How to download videos faster</h2>
+                        <p>The most important step </p>
+                    </div>
+                    <h3>Copy video URL</h3>
+                    <p className="ml-4">
+                        Copy the URL of the video you want to download 
+                    </p>
+                    <h3>Paste video URL in the search field and pick a format</h3>
+                    <p className="ml-4">
+                        Paste the video URL in the search field and pick a format.
+                    </p>
+                    <h3>Download Video</h3>
+                    <p className="ml-4">
+                        Click the "Download" button and wait for your video to be automatically downloaded.
+                        <em>On IOS devices, click on the downloads button , then click on the doownloaded file. Click on the share button and scroll down to the save video option. That's it, you're done!</em>
+                    </p>
+                </div>
             </div>
         </Layout>
     )
 }
+
+
+export default Home;

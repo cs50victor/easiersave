@@ -8,10 +8,10 @@ const Layout =({children})=>{
         <React.Fragment>
             <header className="mb-5">
                 <Container>
-                    <Navbar className="d-flex">
+                    <Navbar className="d-flex pt-4">
                         <div className="mr-auto">
                             <Link to="./">
-                                <strong>Twitter</strong>
+                                <strong>EasierSave</strong>
                             </Link>
                         </div>
                         <div >
@@ -25,12 +25,12 @@ const Layout =({children})=>{
             <small>
             </small>
             <footer>
-                © {new Date().getFullYear()} Footer
-                All rights reserved.
+                © {new Date().getFullYear()} EasierSave 
                 <br/>
                 <small className="text-muted">
-                All the videos that you download are downloaded to your 
-                system directly from their respective CDN servers.
+                    All videos are downloaded from their respective CDN servers directly to your device.
+                    <br/>
+                    easiersave.com doesn't store/host any pirated or copyright content on its server. 
                 </small>
             </footer>
         </React.Fragment>
