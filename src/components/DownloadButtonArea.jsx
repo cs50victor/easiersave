@@ -12,14 +12,22 @@ const DownloadButtonArea =()=>{
     const [thumbnail, setThumbnail] = useState(false);
 
     const downloadVideo=()=>{
-        sendURL(textInput.current.value);
+        if(textInput.current.value < 6){
+            return "Invalid input"
+        }
+        const noSpacesUrl = textInput.current.value;
+        const str = noSpacesUrl.replace(/\s/g, '');
+        console.log(str);
+        sendURL(str);
         setThumbnail(true);
     }
 
     const sendURL =(URL)=>{
         //window.location.href =`/downloader?URL=${URL}`;
-        fetch(`/downloader?URL=${URL}`)
-            .then(response => response.json())        
+        fetch(`http://localhost:4000/downloader?URL=${URL}`,{
+            method: "GET"
+        }).then(res=>res.json())
+        .then(json=> console.log(json))     
     }
 
     return(
@@ -59,32 +67,32 @@ const DownloadButtonArea =()=>{
                         <p><strong>+ more</strong></p>
                     </div>
             </div>
-                <small className="mb-1 rounded bg-primary p-1">
+                <small className="mb-1 rounded text-muted p-1">
                     Example:{" "} https://twitter.com/PassengersMovie/status/821025484150423557
                 </small>
                 <InputGroup className="mb-5">
                     <FormControl
-                        placeholder="Your username"
-                        aria-label="Your username"
-                        type="url"
-                        pattern="http?://.+" 
-                        ref={textInput}
-                        minLength="7"
-                        size="lg"
-                        required
-                    />
-                    <InputGroup.Append className="mr-2">
-                        <Form.Control as="select" custom size="lg">
-                            <option selected>video</option>
-                            <option >audio</option>
-                        </Form.Control>
-                    </InputGroup.Append>
-                    
-                    <InputGroup.Append>
-                        <Button variant="outline-secondary" className="rounded-lg"
-                        onClick={downloadVideo}>Download</Button>
-                    </InputGroup.Append>
+                            placeholder="Your username"
+                            aria-label="Your username"
+                            type="url"
+                            pattern="http?://.+" 
+                            ref={textInput}
+                            minLength="7"
+                            size="lg"
+                            required
+                        />
+                        <InputGroup.Append className="mr-2">
+                            <Form.Control as="select" custom size="lg">
+                                <option >video</option>
+                                <option >audio</option>
+                            </Form.Control>
+                        </InputGroup.Append>
+                    <Button variant="outline-secondary" className="rounded-lg"
+                        onClick={downloadVideo}>
+                            Download
+                    </Button>
                 </InputGroup>
+                
                 {thumbnail ? 
                  <div>
                      <a></a>

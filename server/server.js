@@ -8,6 +8,7 @@ app.use(cors());
 const PORT = process.env.PORT || 4000;
 
 
+
 /*app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res)=>{
@@ -31,31 +32,75 @@ app.use((req, res, next) => {
 
 */
 // https://twitter.com/BlocboyShinra/status/1270934942948691970?s=20
-app.get("/downloader", (req, res, next)=>{
+const checker = new RegExp("^(http|https):\/\/");
+app.get("/downloader", (req, res)=>{
+    const noSpaces = 
     const URL = String(req.query.URL);
-    //.finally(()=> this.setState({loadingResult: false}))
-
+      //.finally(()=> this.setState({loadingResult: false}))
+    //res.json({url: URL})
+    
+    //res.header("Content-Type", "application/json");
+    if (checker.test(URL)){
+        youtubedl.getInfo(URL, (err, info)=>{
+        if (err){
+          console.log(`error: ${err}`)
+          return res.json({url: "Invalid Link or Unsupported Website"})
+        } 
+        return res.json({
+          url: `${info.url}`,
+          thumbnail: `${info.thumbnail}`,
+          title:`${info.title}`
+        });
+      });
+      /*
+      video.on('error', (err)=> {
+          console.log(`error: ${err}`)
+          return res.json({url: "Invalid Link or Unsupported Website"})
+          //return res.send("Invalid Link or Unsupported Link");
+      });
+      video.on("info", (info)=>{
+        return res.json({
+          url: `${info.url}`,
+          thumbnail: `${info.thumbnail}`,
+          title:`${info.title}`
+        });
+      });
+      */
+    }
+    else{
+      res.json({error: "Invalid Url, link must start with 'http:// or https://'"})
+    }
+    
+    
+    /*
     //! use callback function .on to get errors
         const video = youtubedl(URL);
+        res.header("Content-Type", "application/json");
     
         video.on('error', (err)=> {
-            res.json({message: "Invalid Link or unsupported website."}) 
+          console.log(`error: ${err}`)
+            return res.send("Invalid Link or Unsupported Link");
         })
         
         video.on("info", (info)=>{
             console.log("Download Started");
             console.log("filename: " + info.title);
             console.log("thumbnail: " + info.thumbnail)
-            console.log("url: " + info.url)
-            res.json({url: info.url, thumbnail: info.thumbnail, title:info.title })
-            //const fileHeaderName = `${info.title}.mp4`;
+            return res.send({
+              url: `${info.url}`,
+              thumbnail: `${info.thumbnail}`,
+              title:`${info.title}`
+            });
+            
+            /*const fileHeaderName = `${info.title}.mp4`;
             res.header({
                 "Connection": "keep-alive",
-                //"Content-Disposition":contentDisposition(fileHeaderName)
+                "Content-Disposition":contentDisposition(fileHeaderName)
             });
 
-            //youtubedl(URL).pipe(res);
+            youtubedl(URL).pipe(res);
         });
+      */
 });
 
 //error handler middleware

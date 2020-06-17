@@ -13,7 +13,6 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
-  "proxy": "http://localhost:4000",
   "dependencies": {
     "bootstrap": "^4.5.0",
     "gatsby": "^2.22.15",

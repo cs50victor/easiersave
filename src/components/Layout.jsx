@@ -10,7 +10,7 @@ const Layout =({children})=>{
                 <Container>
                     <Navbar className="d-flex pt-4">
                         <div className="mr-auto">
-                            <Link to="./">
+                            <Link to="/">
                                 <strong>EasierSave</strong>
                             </Link>
                         </div>
