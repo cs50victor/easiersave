@@ -6,5 +6,29 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+        overflow-x: hidden;
+        .card{
+           width: 480px;
+           height: 15em;
+           border-radius: 10px;
+           box-shadow: 1px 2px 13px -5.5px #000000;
+           //max-width: 300px; 
+           transition: transform 0.2s;
+           -webkit-transition: transform 0.2s;
+           -moz-transition: transform 0.2s;
+           .card-img-overlay{
+               display: flex;
+               align-content: center;
+           }
+           .card-body{
+              align-self: center;
+           }
+
+           &:hover{
+            transform: scale(1.05);
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+           }
+        }
     }
 }

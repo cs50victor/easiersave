@@ -1,15 +1,20 @@
 import React, {useRef, useState} from "react";
-import {GrInstagram, GrTwitter } from "react-icons/gr"
+import {GrInstagram, GrTwitter } from "react-icons/gr";
 import {Container, InputGroup, FormControl, Button, Spinner, Form} from "react-bootstrap";
 import "../styles/components/_downloadButtonArea.scss";
 
 //import * as l from 'ytdl-core';
 
-
+let downloadLink;
+let thumbnail;
+let title;
+let badUrl;
 const DownloadButtonArea =()=>{
     const textInput = useRef();
     //const [input, setInput] = useState("");
-    const [thumbnail, setThumbnail] = useState(false);
+    const [card, showCard] = useState(false);
+    const [fetched, setFetched] = useState(false); 
+    const [invalidLink, setInvalidLink ] = useState(false);
 
     const downloadVideo=()=>{
         if(textInput.current.value < 6){
@@ -18,8 +23,11 @@ const DownloadButtonArea =()=>{
         const noSpacesUrl = textInput.current.value;
         const str = noSpacesUrl.replace(/\s/g, '');
         console.log(str);
+        showCard(true);
+        setFetched(false);
+        setInvalidLink(false);
         sendURL(str);
-        setThumbnail(true);
+        
     }
 
     const sendURL =(URL)=>{
@@ -27,7 +35,17 @@ const DownloadButtonArea =()=>{
         fetch(`http://localhost:4000/downloader?URL=${URL}`,{
             method: "GET"
         }).then(res=>res.json())
-        .then(json=> console.log(json))     
+        .then(json=> {
+            setFetched(true);
+            const validateUrl = Object.keys(json).length;
+            if ( validateUrl === 1 ){
+                setInvalidLink(true);
+                badUrl = json.error;
+            }
+            downloadLink = json.url;
+            thumbnail = json.thumbnail;
+            title = json.title;
+        })     
     }
 
     return(
@@ -93,12 +111,54 @@ const DownloadButtonArea =()=>{
                     </Button>
                 </InputGroup>
                 
-                {thumbnail ? 
-                 <div>
-                     <a></a>
-                 </div>
-                : <></>
+                {card ?
+                    <div className="card ">
+                        {fetched ?
+                            <>
+                            {invalidLink ?
+                                <>
+                                    <img className="card-img-top" src={""} alt=""></img>
+                                    <div className="card-img-overlay">
+                                        <div className="card-body text-center">
+                                            <p>{badUrl}</p>
+                                        </div>
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <img className="card-img-top" src={thumbnail} alt=""></img>
+                                    <div className="card-img-overlay">
+                                        <div className="card-body text-center">
+                                            <p>{title}</p>
+                                        </div>
+                                        <a href={downloadLink} className="stretched-link" aria-label="LongPress and click download Files (iPhones) Click">wow</a> 
+                                    </div>
+                                </>
+
+                            }
+                            </>
+                            
+                        :
+                            <>
+                                <img className="card-img-top" src={""} alt=""></img>
+                                <div className="card-img-overlay">
+                                    <div className="card-body text-center">
+                                        <Spinner animation="border" />
+                                        <p className="card-text">
+                                            Loading...
+                                        </p>
+                                    </div>
+                                </div>
+                            </>
+                        }
+                        
+                    </div>
+                : 
+                <></>
                 }
+                <div className="my-3">
+                    <p><strong>Share <GrInstagram/> <GrTwitter/></strong></p>
+                </div>
             </div>
         </Container>
     )

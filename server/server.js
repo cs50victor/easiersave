@@ -34,7 +34,6 @@ app.use((req, res, next) => {
 // https://twitter.com/BlocboyShinra/status/1270934942948691970?s=20
 const checker = new RegExp("^(http|https):\/\/");
 app.get("/downloader", (req, res)=>{
-    const noSpaces = 
     const URL = String(req.query.URL);
       //.finally(()=> this.setState({loadingResult: false}))
     //res.json({url: URL})
@@ -44,7 +43,7 @@ app.get("/downloader", (req, res)=>{
         youtubedl.getInfo(URL, (err, info)=>{
         if (err){
           console.log(`error: ${err}`)
-          return res.json({url: "Invalid Link or Unsupported Website"})
+          return res.json({error: "Invalid Link or Unsupported Website"})
         } 
         return res.json({
           url: `${info.url}`,
