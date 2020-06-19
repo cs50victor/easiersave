@@ -25,13 +25,15 @@ const Layout =({children})=>{
             <small>
             </small>
             <footer>
-                © {new Date().getFullYear()} EasierSave 
-                <br/>
-                <small className="text-muted">
-                    All videos are downloaded from their respective CDN servers directly to your device.
+                <Container>
+                    © {new Date().getFullYear()} EasierSave 
                     <br/>
-                    easiersave.com doesn't store/host any pirated or copyright content on its server. 
-                </small>
+                    <small className="text-muted">
+                        All videos are downloaded from their respective CDN servers directly to your device.
+                        <br/>
+                        easiersave.com doesn't store/host any pirated or copyright content on its server. 
+                    </small>
+                </Container>
             </footer>
         </React.Fragment>
     )

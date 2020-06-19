@@ -9,7 +9,7 @@ import "../styles/pages/_index.scss";
 /*
 $ git add .
 $ git commit -m "make it better"
-$ git push heroku master
+$ git subtree push --prefix server heroku master
 
 https://www.gatsbyjs.org/docs/deploying-to-heroku/
  Youtube: https://www.youtube.com/watch?v=Yd1wTE4dlKE
