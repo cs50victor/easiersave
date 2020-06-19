@@ -35,7 +35,7 @@ const DownloadButtonArea =()=>{
 
     const sendURL =(URL)=>{
         //window.location.href =`/downloader?URL=${URL}`;
-        fetch(`https://serverless-easiersave-api.herokuapp.com/downloader?URL=${URL}`,{
+        fetch(`http://localhost:4000/downloader?URL=${URL}`,{
             method: "GET"
         }).then(res=>res.json())
         .then(json=> {
