@@ -42,7 +42,6 @@ app.get("/downloader", (req, res)=>{
     if (checker.test(URL)){
         youtubedl.getInfo(URL, (err, info)=>{
         if (err){
-          console.log(`error: ${err}`)
           return res.json({error: "Invalid Link or Unsupported Website"})
         } 
         return res.json({

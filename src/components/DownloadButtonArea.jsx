@@ -1,33 +1,36 @@
 import React, {useRef, useState} from "react";
-import {GrInstagram, GrTwitter } from "react-icons/gr";
+import {GrInstagram, GrTwitter} from "react-icons/gr";
+import { FaExclamation} from "react-icons/fa";
 import {Container, InputGroup, FormControl, Button, Spinner, Form} from "react-bootstrap";
 import "../styles/components/_downloadButtonArea.scss";
 
 //import * as l from 'ytdl-core';
 
-let downloadLink;
-let thumbnail;
-let title;
-let badUrl;
 const DownloadButtonArea =()=>{
     const textInput = useRef();
     //const [input, setInput] = useState("");
     const [card, showCard] = useState(false);
     const [fetched, setFetched] = useState(false); 
     const [invalidLink, setInvalidLink ] = useState(false);
+    const [downloadLink, setDownloadLink] = useState("");
+    const [thumbnail, setThumbnail]= useState("");
+    const [title, setTitle] = useState("");
+    const [badUrl, setBadUrl] = useState("");
 
     const downloadVideo=()=>{
-        if(textInput.current.value < 6){
-            return "Invalid input"
-        }
-        const noSpacesUrl = textInput.current.value;
-        const str = noSpacesUrl.replace(/\s/g, '');
-        console.log(str);
         showCard(true);
         setFetched(false);
         setInvalidLink(false);
+        const noSpacesUrl = textInput.current.value;
+        let str = noSpacesUrl.replace(/\s/g, '');
+        const mobile1 = new RegExp("^(http|https):\/\/m\.");
+        const mobile2 = new RegExp("^(http|https):\/\/mobile\.");
+        if (mobile1.test(str) || mobile2.test(str) ){
+            const protocol = str.substring(0, str.indexOf("/")+2);
+            const antiMobile = str.substring(str.indexOf(".")+1);
+            str= protocol + antiMobile;
+        }
         sendURL(str);
-        
     }
 
     const sendURL =(URL)=>{
@@ -40,11 +43,11 @@ const DownloadButtonArea =()=>{
             const validateUrl = Object.keys(json).length;
             if ( validateUrl === 1 ){
                 setInvalidLink(true);
-                badUrl = json.error;
+                setBadUrl(json.error);
             }
-            downloadLink = json.url;
-            thumbnail = json.thumbnail;
-            title = json.title;
+            setDownloadLink(json.url);
+            setThumbnail(json.thumbnail);
+            setTitle(json.title);
         })     
     }
 
@@ -105,43 +108,46 @@ const DownloadButtonArea =()=>{
                                 <option >audio</option>
                             </Form.Control>
                         </InputGroup.Append>
-                    <Button variant="outline-secondary" className="rounded-lg"
+                    <Button className="rounded-lg salmon"
                         onClick={downloadVideo}>
                             Download
                     </Button>
                 </InputGroup>
                 
                 {card ?
-                    <div className="card ">
+                    <>
                         {fetched ?
                             <>
                             {invalidLink ?
-                                <>
+                                <div className="card">
                                     <img className="card-img-top" src={""} alt=""></img>
-                                    <div className="card-img-overlay">
+                                    <div className="card-img-overlay shiny">
                                         <div className="card-body text-center">
+                                            <FaExclamation  size={35} color={"red"}/>
                                             <p>{badUrl}</p>
                                         </div>
                                     </div>
-                                </>
+                                </div>
                                 :
                                 <>
-                                    <img className="card-img-top" src={thumbnail} alt=""></img>
-                                    <div className="card-img-overlay">
-                                        <div className="card-body text-center">
-                                            <p>{title}</p>
-                                        </div>
-                                        <a href={downloadLink} className="stretched-link" aria-label="LongPress and click download Files (iPhones) Click">wow</a> 
+                                    <div className="my-2 cutOff px-2 py-1">
+                                        {title}
                                     </div>
+                                    <div className="card">
+                                        <img className="card-img-top" src={thumbnail} alt=""></img>
+                                        <div className="card-img-overlay">
+                                            <a href={downloadLink} className="stretched-link" aria-label="LongPress and click download Files (iPhones) Click">.</a> 
+                                        </div>
+                                    </div>
+                                    
                                 </>
-
                             }
                             </>
                             
                         :
-                            <>
+                            <div className="card ">
                                 <img className="card-img-top" src={""} alt=""></img>
-                                <div className="card-img-overlay">
+                                <div className="card-img-overlay shiny">
                                     <div className="card-body text-center">
                                         <Spinner animation="border" />
                                         <p className="card-text">
@@ -149,10 +155,10 @@ const DownloadButtonArea =()=>{
                                         </p>
                                     </div>
                                 </div>
-                            </>
+                            </div>
                         }
                         
-                    </div>
+                    </>
                 : 
                 <></>
                 }
@@ -165,9 +171,3 @@ const DownloadButtonArea =()=>{
 }
 
 export default DownloadButtonArea;
-
-
-
-/*<Spinner animation="border" role="status">
-  <span className="sr-only">Loading...</span>
-</Spinner>*/

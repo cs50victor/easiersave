@@ -8,8 +8,9 @@
         text-align: center;
         overflow-x: hidden;
         .card{
-           width: 480px;
-           height: 15em;
+           overflow: hidden;
+           width: 450px;
+           height: 15.5em;
            border-radius: 10px;
            box-shadow: 1px 2px 13px -5.5px #000000;
            //max-width: 300px; 
@@ -23,12 +24,31 @@
            .card-body{
               align-self: center;
            }
+           img{
+            filter: saturate(106%);
+            -webkit-filter: saturate(106%);
+           }
+           .stretched-link{
+               color: transparent;
+           }
+           .shiny{
 
+           }
            &:hover{
             transform: scale(1.05);
             -webkit-transform: scale(1.05);
             -moz-transform: scale(1.05);
            }
+        }
+        .cutOff{  
+            color: black;
+            max-width: 420px;
+            text-align: center;
+            background-color: rgb(201, 201, 201);
+            max-height:55px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-radius: 10px;
         }
     }
 }
