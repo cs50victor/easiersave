@@ -33,6 +33,9 @@ app.use((req, res, next) => {
 */
 // https://twitter.com/BlocboyShinra/status/1270934942948691970?s=20
 const checker = new RegExp("^(http|https):\/\/");
+const options = ["--format=best[ext=mp4]/best"]
+//"--format=best[ext=mp4]/best"
+//"--merge-output-format=bestvideo[ext=mp4]+bestaudio", 
 app.get("/downloader", (req, res)=>{
     const URL = String(req.query.URL);
       //.finally(()=> this.setState({loadingResult: false}))
@@ -40,7 +43,7 @@ app.get("/downloader", (req, res)=>{
     
     //res.header("Content-Type", "application/json");
     if (checker.test(URL)){
-        youtubedl.getInfo(URL, (err, info)=>{
+        youtubedl.getInfo(URL,options,(err, info)=>{
         if (err){
           return res.json({error: "Invalid Link or Unsupported Website"})
         } 

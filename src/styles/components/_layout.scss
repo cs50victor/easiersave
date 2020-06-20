@@ -6,11 +6,20 @@ header{
         .mr-auto{
             a{
               font-size: 25px;
-              color: black;
+              color: rgb(39, 48, 54);
               &:hover{
                   text-decoration: none;
               }
             }   
+        }
+        .twitter-mention-button{
+            display: inline-flex;
+            font-size: 1.05rem;
+            color: rgb(39,48,54);
+            background-color: rgba(39,48,54,0.2);
+            border-radius: 0.5rem;
+            padding:0.5rem 1.2rem;
+            text-decoration: none;
         }
     }
 }

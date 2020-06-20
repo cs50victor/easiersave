@@ -6,8 +6,11 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `IBM Plex Sans`,
+            family: `Roboto`,
             variants: [`400`,`700`]
+          },
+          {
+            family: `Bungee`
           }
         ],
       },

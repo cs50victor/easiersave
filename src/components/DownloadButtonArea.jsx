@@ -54,10 +54,9 @@ const DownloadButtonArea =()=>{
     return(
         <Container>
             <div className="downloadButtonArea">
-                <h1>
+                <h1 className="title">
                     EasierSave 
                 </h1>
-                <br/>
                 <div  className="d-inline-flex justify-content-center mb-2">
                     <div>
                         <img className="img-fluid" width="70px"
@@ -87,31 +86,26 @@ const DownloadButtonArea =()=>{
                     <div className=" align-self-end">
                         <p><strong>+ more</strong></p>
                     </div>
-            </div>
-                <small className="mb-1 rounded text-muted p-1">
+                </div>
+                <small className="mb-1 mx-1 rounded text-muted p-1">
                     Example:{" "} https://twitter.com/PassengersMovie/status/821025484150423557
                 </small>
                 <InputGroup className="mb-5">
                     <FormControl
-                            placeholder="Your username"
-                            aria-label="Your username"
+                            placeholder="Paste your link here"
+                            aria-label="Paste your link here"
                             type="url"
-                            pattern="http?://.+" 
                             ref={textInput}
                             minLength="7"
                             size="lg"
                             required
                         />
-                        <InputGroup.Append className="mr-2">
-                            <Form.Control as="select" custom size="lg">
-                                <option >video</option>
-                                <option >audio</option>
-                            </Form.Control>
+                        <InputGroup.Append>
+                            <Button className="bg-success"
+                                onClick={downloadVideo}>
+                                    Download
+                            </Button>
                         </InputGroup.Append>
-                    <Button className="rounded-lg salmon"
-                        onClick={downloadVideo}>
-                            Download
-                    </Button>
                 </InputGroup>
                 
                 {card ?

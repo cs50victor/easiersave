@@ -7,6 +7,10 @@
         align-items: center;
         text-align: center;
         overflow-x: hidden;
+        .title{
+            font-family: "Bungee";
+            font-weight: 400;
+        }
         .card{
            overflow: hidden;
            width: 450px;
@@ -41,14 +45,17 @@
            }
         }
         .cutOff{  
-            color: black;
+            color: rgb(39, 48, 54);
             max-width: 420px;
             text-align: center;
-            background-color: rgb(201, 201, 201);
+            background-color: rgba(39,48,54,0.2);
             max-height:55px;
             overflow: hidden;
             text-overflow: ellipsis;
-            border-radius: 10px;
+            border-radius: 0.5rem;
+        }
+        small{
+            word-break: keep-all;
         }
     }
 }
