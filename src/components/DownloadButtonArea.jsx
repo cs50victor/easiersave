@@ -1,6 +1,8 @@
 import React, {useRef, useState} from "react";
-import {GrInstagram, GrTwitter} from "react-icons/gr";
+import {FiArrowDownCircle} from "react-icons/fi";
 import { FaExclamation} from "react-icons/fa";
+import { BsBoxArrowUp} from "react-icons/bs";
+import {FcOk} from "react-icons/fc";
 import {Container, InputGroup, FormControl, Button, Spinner, Form} from "react-bootstrap";
 import "../styles/components/_downloadButtonArea.scss";
 
@@ -57,7 +59,8 @@ const DownloadButtonArea =()=>{
                 <h1 className="title">
                     EasierSave 
                 </h1>
-                <div  className="d-inline-flex justify-content-center mb-2">
+                <p className="m-0">easily save videos from</p>
+                <div  className="d-inline-flex justify-content-center mb-2 noDrag">
                     <div>
                         <img className="img-fluid" width="70px"
                         alt="Twitter logo from Icons8"
@@ -87,13 +90,11 @@ const DownloadButtonArea =()=>{
                         <p><strong>+ more</strong></p>
                     </div>
                 </div>
-                <small className="mb-1 mx-1 rounded text-muted p-1">
-                    Example:{" "} https://twitter.com/PassengersMovie/status/821025484150423557
-                </small>
+                <div className="small mb-1 text-muted">Example:{" "} https://twitter.com/PassengersMovie/status/821025484150423557</div>
                 <InputGroup className="mb-5">
                     <FormControl
-                            placeholder="Paste your link here"
-                            aria-label="Paste your link here"
+                            placeholder="Paste video link here"
+                            aria-label="Paste video link here"
                             type="url"
                             ref={textInput}
                             minLength="7"
@@ -113,25 +114,53 @@ const DownloadButtonArea =()=>{
                         {fetched ?
                             <>
                             {invalidLink ?
-                                <div className="card">
+                                <div className="card noAltBackground my-3">
                                     <img className="card-img-top" src={""} alt=""></img>
                                     <div className="card-img-overlay shiny">
                                         <div className="card-body text-center">
-                                            <FaExclamation  size={35} color={"red"}/>
-                                            <p>{badUrl}</p>
+                                            <div>
+                                                <FaExclamation  size={35} color={"red"}/>
+                                                <p>{badUrl}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 :
                                 <>
-                                    <div className="my-2 cutOff px-2 py-1">
-                                        {title}
+                                    <div className="my-2 textCutOff p-1">
+                                            <strong>{title}</strong>
                                     </div>
-                                    <div className="card">
+                                    <div className="card altBackground mb-3">
                                         <img className="card-img-top" src={thumbnail} alt=""></img>
+                                        
                                         <div className="card-img-overlay">
                                             <a href={downloadLink} className="stretched-link" aria-label="LongPress and click download Files (iPhones) Click">.</a> 
                                         </div>
+                                    </div>
+                                    <div className="my-2 quickInfo p-2">
+                                        <ul>
+                                            <li><strong>On Apple devices (Use Safari {" "}
+                                                <img src="https://help.apple.com/assets/5E191630680CE2E07445B58A/5E191634680CE2E07445B591/en_US/4236b540374dd23e0ba9e00d84f328ac.png"
+                                                 className="img-fluid" alt="" height="21" width="21" originalimagename="SharedGlobalArt/AppIconDefault_Safari.png">
+                                                </img> 
+                                                ) 
+                                                : </strong>
+                                                <ol className="ml-5">
+                                                    <li >Long Press the above image.</li>
+                                                    <li>Choose the "Download Linked File <FiArrowDownCircle/>" option.</li>
+                                                    <li>Click the Show Downloads button <FiArrowDownCircle/> near the top-right corner of your Safari window.</li>
+                                                    <li>Tap on the video you just downloaded and click on the <BsBoxArrowUp/> button.</li>
+                                                    <li>Press the "Save Video" button and you're done!  <FcOk/></li>
+                                                </ol>
+                                            </li>
+                                            <li><strong>On other devices  :</strong> 
+                                                <ol className="ml-5">
+                                                    <li>Click on the above image.</li>
+                                                    <li>Click on the menu button located at the bottom right corner of the video.</li>
+                                                    <li>Hit the download button and your video will begin downloading!<FcOk/></li>
+                                                </ol>
+                                            </li>
+                                        </ul>
                                     </div>
                                     
                                 </>
@@ -139,14 +168,17 @@ const DownloadButtonArea =()=>{
                             </>
                             
                         :
-                            <div className="card ">
+                            <div className="card noAltBackground my-3">
                                 <img className="card-img-top" src={""} alt=""></img>
                                 <div className="card-img-overlay shiny">
                                     <div className="card-body text-center">
-                                        <Spinner animation="border" />
-                                        <p className="card-text">
-                                            Loading...
-                                        </p>
+                                        <div>
+                                            <Spinner animation="border" />
+                                            <p className="card-text">
+                                                Loading...
+                                            </p>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -156,9 +188,6 @@ const DownloadButtonArea =()=>{
                 : 
                 <></>
                 }
-                <div className="my-3">
-                    <p><strong>Share <GrInstagram/> <GrTwitter/></strong></p>
-                </div>
             </div>
         </Container>
     )

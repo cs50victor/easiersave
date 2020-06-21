@@ -2,7 +2,8 @@ import React from "react";
 import Layout from "../components/Layout"
 import DownloadButtonArea from "../components/DownloadButtonArea";
 //import {Button} from "react-bootstrap";
-//import { AiFillApple, AiOutlineDesktop } from "react-icons/ai";
+import { BsBoxArrowUp} from "react-icons/bs";
+import {FcFilm, FcInspection, FcDownload} from "react-icons/fc"
 import "../styles/pages/_index.scss";
 
 
@@ -24,21 +25,26 @@ const Home =()=>{
             <div className="sect2">
                 <div className="container howTo">
                     <div className="text-center my-5">
-                        <h2>How to download videos faster</h2>
-                        <p>The most important step </p>
+                        <h2>How to quickly and easily download videos</h2>
+                        <hr/>
+                        <p> <u>The most important step</u> is to add this page to your device's home screen for quicker access. </p>
+                        Use the <BsBoxArrowUp/> button located at the bottom of your Safari Window to find the <br/> <strong><u>"Add to Home screen"</u></strong> <br/>option on iOS devices 
+                        <br/> 
+                        or
+                        <br/>
+                        Use to the menu button on other devices to find this option.
                     </div>
-                    <h3>Copy video URL</h3>
+                    <h3><FcFilm size={70}/>Copy the video URL</h3>
                     <p className="ml-4">
                         Copy the URL of the video you want to download 
                     </p>
-                    <h3>Paste video URL in the search field and pick a format</h3>
+                    <h3> <FcInspection size={70}/>Paste the URL in the input box</h3>
                     <p className="ml-4">
-                        Paste the video URL in the search field and pick a format.
+                        Paste the video URL in the input box and click the download button.
                     </p>
-                    <h3>Download Video</h3>
+                    <h3> <FcDownload size={70}/>Download the Video</h3>
                     <p className="ml-4">
-                        Click the "Download" button and wait for your video to be automatically downloaded.
-                        <em>On IOS devices, click on the downloads button , then click on the doownloaded file. Click on the share button and scroll down to the save video option. That's it, you're done!</em>
+                        Follow the download instructions for your device listed under the image/thumbnail displayed after clicking the download button
                     </p>
                 </div>
             </div>

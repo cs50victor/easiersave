@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 */
 // https://twitter.com/BlocboyShinra/status/1270934942948691970?s=20
 const checker = new RegExp("^(http|https):\/\/");
-const options = ["--format=best[ext=mp4]/best"]
+//const options = ["--format=best[ext=mp4]/best"]
 //"--format=best[ext=mp4]/best"
 //"--merge-output-format=bestvideo[ext=mp4]+bestaudio", 
 app.get("/downloader", (req, res)=>{
@@ -43,7 +43,7 @@ app.get("/downloader", (req, res)=>{
     
     //res.header("Content-Type", "application/json");
     if (checker.test(URL)){
-        youtubedl.getInfo(URL,options,(err, info)=>{
+        youtubedl.getInfo(URL,(err, info)=>{
         if (err){
           return res.json({error: "Invalid Link or Unsupported Website"})
         } 
@@ -51,7 +51,7 @@ app.get("/downloader", (req, res)=>{
           url: `${info.url}`,
           thumbnail: `${info.thumbnail}`,
           title:`${info.title}`
-        });
+          });
       });
       /*
       video.on('error', (err)=> {
@@ -69,7 +69,7 @@ app.get("/downloader", (req, res)=>{
       */
     }
     else{
-      res.json({error: "Invalid Url, link must start with 'http:// or https://'"})
+      res.json({error: "Invalid Url. Make sure your link starts with 'http:// or https://'"})
     }
     
     
