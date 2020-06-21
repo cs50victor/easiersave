@@ -3,7 +3,7 @@ import {FiArrowDownCircle} from "react-icons/fi";
 import { FaExclamation} from "react-icons/fa";
 import { BsBoxArrowUp} from "react-icons/bs";
 import {FcOk} from "react-icons/fc";
-import {Container, InputGroup, FormControl, Button, Spinner, Form} from "react-bootstrap";
+import {Container, InputGroup, FormControl, Button, Spinner} from "react-bootstrap";
 import "../styles/components/_downloadButtonArea.scss";
 
 //import * as l from 'ytdl-core';

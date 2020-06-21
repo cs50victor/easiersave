@@ -1,5 +1,4 @@
-import React, {useEffect} from "react";
-import {Link} from "gatsby";
+import React from "react";
 import {Container, Navbar} from "react-bootstrap";
 import {FaTwitter} from "react-icons/fa"
 //import {TwitterShareButton} from "react-twitter-embed"
