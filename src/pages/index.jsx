@@ -29,9 +29,7 @@ const Home =()=>{
                         <hr/>
                         <p> <u>The most important step</u> is to add this page to your device's home screen for quicker access. </p>
                         Use the <BsBoxArrowUp/> button located at the bottom of your Safari Window to find the <br/> <strong><u>"Add to Home screen"</u></strong> <br/>option on iOS devices 
-                        <br/> 
                         or
-                        <br/>
                         Use to the menu button on other devices to find this option.
                     </div>
                     <h3><FcFilm size={70}/>Copy the video URL</h3>
