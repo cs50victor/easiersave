@@ -37,11 +37,11 @@ const DownloadButtonArea =()=>{
 
     const sendURL =(URL)=>{
         //window.location.href =`/downloader?URL=${URL}`;
+        
         fetch(`https://serverless-easiersave-api.herokuapp.com/downloader?URL=${URL}`,{
             method: "GET"
         }).then(res=>res.json())
         .then(json=> {
-            setFetched(true);
             const validateUrl = Object.keys(json).length;
             if ( validateUrl === 1 ){
                 setInvalidLink(true);
@@ -50,6 +50,7 @@ const DownloadButtonArea =()=>{
             setDownloadLink(json.url);
             setThumbnail(json.thumbnail);
             setTitle(json.title);
+            setFetched(true);
         })     
     }
 
@@ -116,7 +117,7 @@ const DownloadButtonArea =()=>{
                             {invalidLink ?
                                 <div className="card noAltBackground my-3">
                                     <img className="card-img-top" src={""} alt=""></img>
-                                    <div className="card-img-overlay shiny">
+                                    <div className="card-img-overlay">
                                         <div className="card-body text-center">
                                             <div>
                                                 <FaExclamation  size={35} color={"red"}/>
@@ -170,7 +171,7 @@ const DownloadButtonArea =()=>{
                         :
                             <div className="card noAltBackground my-3">
                                 <img className="card-img-top" src={""} alt=""></img>
-                                <div className="card-img-overlay shiny">
+                                <div className="card-img-overlay">
                                     <div className="card-body text-center">
                                         <div>
                                             <Spinner animation="border" />

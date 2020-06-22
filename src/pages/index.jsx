@@ -3,6 +3,7 @@ import Layout from "../components/Layout"
 import DownloadButtonArea from "../components/DownloadButtonArea";
 //import {Button} from "react-bootstrap";
 import { BsBoxArrowUp} from "react-icons/bs";
+import {Helmet} from "react-helmet";
 import {FcFilm, FcInspection, FcDownload} from "react-icons/fc"
 import "../styles/pages/_index.scss";
 
@@ -20,6 +21,13 @@ const Home =()=>{
 
     return(
         <Layout>
+            <Helmet>
+                <title>Easier Save | Download videos from Twitter, Youtube + more.</title>
+                <meta name="description" content="Download videos from Youtube, Twitter, Instagram, Facebook, TikTok and many other websites to your device (iPhone, iPads etc).Twitter, Youtube and other social media sites video downloader."/>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <meta name="keywords" content="react,seo,helmet" />
+                <link rel="canonical" href="https://easiersave.com/" />
+            </Helmet>
             <DownloadButtonArea/>
             <br/>
             <div className="sect2">
