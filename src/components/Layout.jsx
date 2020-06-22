@@ -39,8 +39,6 @@ const Layout =({children})=>{
                 </Container>
             </header>
             <main className="py-5">{children}</main>
-            <small>
-            </small>
             <footer className="my-3">
                 <Container>
                     © {new Date().getFullYear()} EasierSave 

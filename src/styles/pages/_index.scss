@@ -80,10 +80,22 @@ body{
     display: flex;
     .howTo{
         margin: 7em 0.5em;
-        box-shadow: 1px 2px 13px -2px #000000;
         border-radius: 10px;
         padding: 30px;
-        background-color: white;
+        color: white;
+        
+        h2{
+            font-size: 2.5rem;
+        }
+        .importantInfo{
+            box-shadow: 1px 2px 13px -5.5px #000000; 
+            background-color: white;
+            color: black;
+            border-radius: 0.5rem;
+            p{
+                font-size: 1.4rem;
+            }
+        }
     }
 }
 
