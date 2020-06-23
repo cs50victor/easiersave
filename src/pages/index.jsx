@@ -28,6 +28,7 @@ const Home =()=>{
                 <meta name="keywords" content="Twitter Video Downloader, iPhone Twitter Download, Youtube downloader, video downloader, download youtube videos, iPhone download videos, Instagram video downloader, Download TikTok Videos, Download Facebook videos, Twitter" />
                 <meta name="theme-color" content="#FFFFFF"/>
                 <link rel="canonical" href="https://easiersave.com/" />
+                <script data-ad-client="ca-pub-6031765331775495" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <noscript>You need to enable JavaScript to run this app.</noscript>
             </Helmet>
             <DownloadButtonArea/>
