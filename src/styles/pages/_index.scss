@@ -88,14 +88,22 @@ body{
             font-size: 2.5rem;
         }
         .importantInfo{
-            box-shadow: 1px 1px 90px -14.5px #ffffff; 
-            color: rgb(39, 23, 23);
+            //box-shadow: 1px 1px 90px -14.5px #ffffff; 
+            color: rgb(0, 0, 0);
             border-radius: 0.5rem;
-            background-color: rgba(255,255,255,0.85);
+            background-color: white;
             p{
                 font-size: 1.4rem;
+                text-align: left;
             }
         }
+    }
+}
+
+.sect3{
+    overflow: hidden;
+    p{
+        word-break: keep-all;
     }
 }
 
