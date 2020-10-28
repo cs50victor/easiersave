@@ -17,7 +17,7 @@ const Layout =({children})=>{
                             </a>
                         </div>
                         <div>
-                            <Link to="/about/" className="twitter-mention-button">
+                            <Link to="/about/" className="about-button">
                                 <strong>
                                     About
                                     {" "}
