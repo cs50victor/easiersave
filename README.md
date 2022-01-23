@@ -9,7 +9,7 @@
   EASIER SAVE 
   </span>
   <br/>
-  <a href="https://easiersave.com/">view website</a>
+  <a href="https://easiersave.vercel.app/">view website</a>
 </h1>
 
 ![Demo Gif](https://github.com/cs50victor/personalwebsite/blob/master/src/Assets/gifs/save.gif?raw=true)
