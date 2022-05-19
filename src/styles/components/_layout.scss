@@ -1,0 +1,25 @@
+header{
+    //background: url(../bg.png) no-repeat top bottom/cover;
+    .container{
+        max-width: 800px;
+
+        .mr-auto{
+            a{
+              font-size: 25px;
+              color: rgb(39, 48, 54);
+              &:hover{
+                  text-decoration: none;
+              }
+            }   
+        }
+        .about-button{
+            display: inline-flex;
+            font-size: 1.05rem;
+            color: rgb(39,48,54);
+            background-color: rgba(39,48,54,0.2);
+            border-radius: 0.5rem;
+            padding:0.5rem 1.2rem;
+            text-decoration: none;
+        }
+    }
+}

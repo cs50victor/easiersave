@@ -1,0 +1,138 @@
+@import "../responsive/breakpoints.scss";
+.container{
+    max-width: 700px;
+    .downloadButtonArea{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        .title{
+            font-family: "Bungee";
+            font-weight: 400;
+            line-height: 1;
+        }
+        .small{
+            //word-wrap: break-word;
+            padding: 0 0.5rem;
+            word-break: break-all;
+            //background-color: rgba(39,48,54,0.2);
+        }
+        .form-control-lg{
+            @include media("<phone"){
+                font-size: 1rem;
+            }
+        }
+        .noDrag img{
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            -webkit-touch-callout: none; 
+            -webkit-user-select: none;   
+            -khtml-user-select: none;    
+            -moz-user-select: none;      
+            -ms-user-select: none;       
+            user-select: none;
+        }
+        .card{
+           overflow: hidden;
+           height: 0;
+           width: 450px;
+           font-weight: 700;
+           padding-bottom: calc(450px*9/16);
+           &.noAltBackground{
+            background-image: url(../components/wave1.svg);
+            background-position: center top;
+            background-repeat: repeat-x;
+            background-size: cover;
+            background-color: rgba(255, 251, 233, 0.24);
+           }
+           &.altBackground{
+            background-image: url(https://img.icons8.com/fluent/512/000000/video.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 60% 95%;
+            background-color: whitesmoke;
+           }
+           
+           @include media("<500px"){
+                width: 400px;
+                padding-bottom: calc(400px*9/16);
+           }
+           @include media("<450px"){
+                width: 380px;
+                padding-bottom: calc(380px*9/16);
+           }
+           @include media("<420px"){
+                width: 350px;
+                padding-bottom: calc(350px*9/16);
+           }
+           @include media("<384px"){
+                width: 315px;
+                padding-bottom: calc(315px*9/16);
+            }
+            @include media("<351px"){
+                width: 270px;
+                padding-bottom: calc(270px*9/16);
+           }
+
+           border-radius: 0.6rem;
+           box-shadow: 1px 2px 13px -5.5px #000000; 
+           transition: transform 0.2s;
+           -webkit-transition: transform 0.2s;
+           -moz-transition: transform 0.2s;
+           .card-img-overlay{
+               display: flex;
+               align-content: center;
+           }
+           .card-body{
+              //align-self: center;
+              backdrop-filter: blur(3px);
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-content: center;
+           }
+           img{
+            filter: saturate(106%);
+            -webkit-filter: saturate(106%);
+           }
+           .stretched-link{
+               color: transparent;
+           }
+           &:hover{
+            transform: scale(1.05);
+            -webkit-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+           }
+        }
+        
+        //for video {title}
+        .textCutOff{  
+            width: calc(250px + (420 - 250) * ((100vw - 351px) / (1600 - 300)));;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            text-align: center;
+            background-color: rgba(39,48,54,0.2);
+            text-overflow: ellipsis;
+            border-radius: 0.5rem;         
+        }
+        //Quick Info under video
+        .quickInfo{
+            width: calc(290px + (450 - 290) * ((100vw - 351px) / (1600 - 300)));;
+            overflow: hidden;
+            text-align: center;
+            background-color: rgba(39,48,54,0.05);
+            border-radius: 0.5rem; 
+            text-align: left;
+        }
+        
+    }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "easiersave",
+  "private": true,
+  "description": "A faster way to download videos.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "braces": "^3.0.2",
+    "gatsby": "^2.24.89",
+    "gatsby-plugin-google-analytics": "^2.3.19",
+    "gatsby-plugin-manifest": "^2.4.36",
+    "gatsby-plugin-offline": "^3.2.37",
+    "gatsby-plugin-react-helmet": "^3.3.14",
+    "gatsby-plugin-sass": "^2.3.21",
+    "node-sass": "^4.14.1",
+    "parse": "^2.17.0",
+    "react": "^16.14.0",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^16.14.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^3.11.0"
+  },
+  "devDependencies": {
+    "prettier": "2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
