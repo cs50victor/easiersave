@@ -1,43 +1,64 @@
 {
-  "name": "easiersave",
-  "private": true,
-  "description": "A faster way to download videos.",
+  "name": "nextwin",
+  "description": "Easy Next.js & Twin.macro Web dev Template .",
   "version": "0.1.0",
-  "license": "MIT",
+  "private": true,
+  "author": {
+    "name": "Victor A.",
+    "url": "https://victr.xyz"
+  },
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "dev": "yarn lint && yarn format && next dev -p 8000",
+    "local": "yarn format && yarn lint && vercel dev --listen 8080",
+    "format": "yarn prettier -w --loglevel silent \"**/*.+(js|jsx|ts|tsx|json|md)\""
   },
   "dependencies": {
-    "bootstrap": "^4.5.3",
-    "braces": "^3.0.2",
-    "gatsby": "^2.24.89",
-    "gatsby-plugin-google-analytics": "^2.3.19",
-    "gatsby-plugin-manifest": "^2.4.36",
-    "gatsby-plugin-offline": "^3.2.37",
-    "gatsby-plugin-react-helmet": "^3.3.14",
-    "gatsby-plugin-sass": "^2.3.21",
-    "node-sass": "^4.14.1",
-    "parse": "^2.17.0",
-    "react": "^16.14.0",
-    "react-bootstrap": "^1.4.0",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^3.11.0"
+    "@emotion/css": "^11.5.0",
+    "@emotion/react": "^11.7.0",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.6.0",
+    "@headlessui/react": "^1.4.1",
+    "@hookform/resolvers": "^2.8.0",
+    "next": "latest",
+    "next-seo": "^4.28.1",
+    "next-themes": "^0.0.15",
+    "process": "^0.11.10",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-hook-form": "^7.15.2",
+    "react-icons": "^4.3.1",
+    "react-use": "^17.3.1",
+    "swr": "^1.1.1",
+    "twin.macro": "^2.8.2",
+    "use-sound": "^4.0.1",
+    "youtube-dl-exec": "^2.0.12",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
-    "prettier": "2.0.5"
+    "@emotion/babel-plugin": "^11.3.0",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.0",
+    "babel-plugin-macros": "^3.1.0",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.2",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.4.0",
+    "react-is": "^17.0.2",
+    "tailwindcss": "^3.0.15"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "prettier": {
+    "arrowParens": "always",
+    "doubleQuote": true,
+    "tabWidth": 2,
+    "printWidth": 90,
+    "trailingComma": "all",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "semi": false
   }
 }
