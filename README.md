@@ -1,12 +1,14 @@
-# EASIERSAVE | Youtube Video Downloader
+# Easiersave
+
+## A youtube video downloader
 
 ![thumbnail](thumbnail.png)
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)
-- **Styling**: [Twin.macro/Tailwind CSS](https://github.com/ben-rogerson/twin.macro)
+- **Styling**: [twin.macro](https://github.com/ben-rogerson/twin.macro)
 
-## Running Locally
+### Running Locally
 
 ```bash
 git clone https://github.com/cs50victor/easiersave.git
