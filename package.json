@@ -34,7 +34,7 @@
     "swr": "^1.1.1",
     "twin.macro": "^2.8.2",
     "use-sound": "^4.0.1",
-    "youtube-dl": "^3.5.0",
+    "ytdl-core": "^4.11.0",
     "yup": "^0.32.9"
   },
   "devDependencies": {
