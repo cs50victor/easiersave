@@ -32,7 +32,7 @@ export default function Home() {
   const onSubmit = async ({ videoUrl }) => {
     setIsLoading(true)
 
-    const { fileUrl, thumbnail, title, error } = await fetch(
+    const { url:fileUrl, thumbnail, title, error } = await fetch(
       `api/downloader?videoUrl=${videoUrl.trim()}`,
     ).then((res) => res.json())
 
@@ -55,11 +55,11 @@ export default function Home() {
       >
         <h1
           tw="
-          text-4xl sm:text-5xl text-center pt-10 mb-6
+          text-4xl sm:text-5xl text-center pt-10 mb-6 
           text-transparent bg-clip-text bg-gradient-to-br from-red-600  to-indigo-800
         "
         >
-          Video Downloader
+          Youtube <br/> Video Downloader
         </h1>
 
         <small tw="mt-8 text-neutral-5 px-2">

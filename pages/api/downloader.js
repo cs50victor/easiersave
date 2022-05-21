@@ -12,21 +12,23 @@ export default async function downloader(req, res) {
   const { videoUrl } = req.query
 
   if (urlChecker.test(videoUrl)) {
-    try{
-
+    try {
       let info = await ytdl.getInfo(videoUrl)
-      
-      const url = info.formats.filter((video)=>video.hasVideo && video.hasAudio).sort((a,b) => a.width > b.width).pop().url
-      const thumbnail = info.videoDetails.thumbnails.sort((a,b) => a.width > b.width).pop().url
+
+      const url = info.formats
+        .filter((video) => video.hasVideo && video.hasAudio)
+        .sort((a, b) => a.width > b.width)
+        .pop().url
+      const thumbnail = info.videoDetails.thumbnails
+        .sort((a, b) => a.width > b.width)
+        .pop().url
       const title = info.videoDetails.title
-      
-      return res.status(200).json({url,thumbnail,title})
-    }
-    catch (error){
+
+      return res.status(200).json({ url, thumbnail, title })
+    } catch (error) {
       console.log(error)
       return res.status(404).json({
-        error:
-          "Unable to download video. Please try a different Youtube URL.",
+        error: "Unable to download video. Please try a different Youtube URL.",
       })
     }
   } else {
