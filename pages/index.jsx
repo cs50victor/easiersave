@@ -7,6 +7,8 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import MarketingContainer from "@layouts/MarketingContainer"
 import { Img, Input, Button, LoadingCircle, StyledLink, ExternalLink } from "@components"
 import { Modal } from "@primitives"
+import { BsYoutube } from "react-icons/bs"
+import {fetchGetJSON} from "@utils/apiHelpers"
 
 const schema = yup.object().shape({
   videoUrl: yup
@@ -32,9 +34,12 @@ export default function Home() {
   const onSubmit = async ({ videoUrl }) => {
     setIsLoading(true)
 
-    const { url:fileUrl, thumbnail, title, error } = await fetch(
-      `api/downloader?videoUrl=${videoUrl.trim()}`,
-    ).then((res) => res.json())
+    const {
+      url: fileUrl,
+      thumbnail,
+      title,
+      error,
+    } = await fetchGetJSON(`api/downloader?videoUrl=${videoUrl.trim()}`)
 
     if (error) {
       setVideoDetals({ title: error })
@@ -59,7 +64,8 @@ export default function Home() {
           text-transparent bg-clip-text bg-gradient-to-br from-red-600  to-indigo-800
         "
         >
-          Youtube <br/> Video Downloader
+          <BsYoutube tw="w-20 h-auto text-red-600 mx-auto"/> 
+          Video Downloader
         </h1>
 
         <small tw="mt-8 text-neutral-5 px-2">
@@ -77,7 +83,7 @@ export default function Home() {
           <div>
             <Input
               type="url"
-              placeholder="full video url"
+              placeholder="full youtube video url"
               aria-label="video url"
               autoCapitalize="none"
               error={!!errors?.videoUrl}
