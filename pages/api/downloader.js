@@ -1,5 +1,7 @@
-const youtubedl = require("youtube-dl-exec")
+const youtubedl = require("youtube-dl")
 const urlChecker = new RegExp("^(http|https)://")
+
+// http://localhost:8000/api/downloader?videoUrl=https://www.youtube.com/watch?v=JGwWNGJdvx8
 
 export default async function downloader(req, res) {
   if (req.method !== "GET") {
@@ -10,34 +12,20 @@ export default async function downloader(req, res) {
   const { videoUrl } = req.query
 
   if (urlChecker.test(videoUrl)) {
-    try {
-      const { url, title, thumbnail, formats } = await youtubedl(videoUrl, {
-        dumpSingleJson: true,
-        noWarnings: true,
-        noCallHome: true,
-        noCheckCertificate: true,
-        preferFreeFormats: true,
-        youtubeSkipDashManifest: true,
-        referer: videoUrl,
-        socketTimeout: 10,
+      
+      await youtubedl.getInfo(videoUrl, (error, info)=>{
+        if (error){
+          return res.status(404).json({
+            error: "Unable to download video. Please try a different url or try again later.",
+          })
+        } 
+        return res.status(200).json({
+          url: info.url,
+          thumbnail: info.thumbnail,
+          title: info.title
+        })
       })
 
-      const fileUrl =
-        url ||
-        formats
-          .filter((format) => format.vcodec !== "none" && format.acodec !== "none")
-          .sort()
-          .pop().url
-
-      console.log(`file url:\t${fileUrl}]\ntitle:\t${title}\nthumbnail:\t${thumbnail}`)
-
-      return res.status(200).json({ fileUrl, thumbnail, title })
-    } catch (error) {
-      console.log(error)
-      return res
-        .status(400)
-        .json({ error: "Unable to download video. Please try a different url or try again later." })
-    }
   } else {
     return res.status(400).json({
       error: "Invalid Url. Make sure your link starts with 'http:// or https://'",
